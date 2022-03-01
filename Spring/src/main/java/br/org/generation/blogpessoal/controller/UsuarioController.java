@@ -35,9 +35,7 @@ public class UsuarioController
 	@GetMapping("/all")
 	public ResponseEntity <List<Usuario>> getAll()
 	{
-		
 		return ResponseEntity.ok(usuarioRepository.findAll());
-		
 	}
 	
 	@PostMapping("/logar")
