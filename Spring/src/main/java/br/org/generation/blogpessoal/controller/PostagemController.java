@@ -36,23 +36,13 @@ public class PostagemController {
 	}
 	
 	@GetMapping ("/{id}")
-	public ResponseEntity <Postagem> getById(@PathVariable Long id)
+	public ResponseEntity <Postagem> getById(@PathVariable long id)
 	{
 		return postagemRepository.findById(id)
 				.map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("idifelse/{id}")
-	public ResponseEntity<Postagem> getByIdIfElse(@PathVariable long id)
-	{
-		Optional<Postagem> postagem = postagemRepository.findById(id);
-		if (postagem.isPresent())
-		{
-			return ResponseEntity.ok(postagem.get());
-		}
-		return ResponseEntity.notFound().build();
-	}
 	
 	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<Postagem>> getByTitulo(@PathVariable String titulo)

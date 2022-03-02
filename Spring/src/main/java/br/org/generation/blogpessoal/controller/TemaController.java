@@ -29,13 +29,13 @@ public class TemaController
 	private TemaRepository temaRepository;
 	
 	@GetMapping
-	public ResponseEntity<List<Tema>>GetAll()
+	public ResponseEntity<List<Tema>>getAll()
 	{
 		return ResponseEntity.ok(temaRepository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Tema> getById(@PathVariable Long id) 
+	public ResponseEntity<Tema> getById(@PathVariable long id) 
 	{
 		return temaRepository.findById(id)
 				.map(resposta -> ResponseEntity.ok(resposta))
@@ -66,7 +66,7 @@ public class TemaController
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> deletePostagem(@PathVariable Long id)
+	public ResponseEntity<?> deletePostagem(@PathVariable long id)
 	{
 		return temaRepository.findById(id)
 				.map(resposta->
